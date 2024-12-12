@@ -1,0 +1,244 @@
+@charset "UTF-8";
+/*@font-face {*/
+/*    font-family: "AvenirNextCyr-Bold";*/
+/*    font-display: swap;*/
+/*    src: url("../fonts/AvenirNextCyr-Bold.woff2") format("woff2"), url("../fonts/AvenirNextCyr-Bold.woff") format("woff");*/
+/*    font-weight: 700;*/
+/*    font-style: normal;*/
+/*}*/
+/*@font-face {*/
+/*    font-family: "AvenirNextCyr-BoldItalic";*/
+/*    font-display: swap;*/
+/*    src: url("../fonts/AvenirNextCyr-BoldItalic.woff2") format("woff2"), url("../fonts/AvenirNextCyr-BoldItalic.woff") format("woff");*/
+/*    font-weight: 700;*/
+/*    font-style: normal;*/
+/*}*/
+/*@font-face {*/
+/*    font-family: "AvenirNextCyr-Medium";*/
+/*    font-display: swap;*/
+/*    src: url("../fonts/AvenirNextCyr-Medium.woff2") format("woff2"), url("../fonts/AvenirNextCyr-Medium.woff") format("woff");*/
+/*    font-weight: 500;*/
+/*    font-style: normal;*/
+/*}*/
+/*@font-face {*/
+/*    font-family: "AvenirNextCyr-Regular";*/
+/*    font-display: swap;*/
+/*    src: url("../fonts/AvenirNextCyr-Regular.woff2") format("woff2"), url("../fonts/AvenirNextCyr-Regular.woff") format("woff");*/
+/*    font-weight: 400;*/
+/*    font-style: normal;*/
+/*}*/
+/*@font-face {*/
+/*    font-family: "AvenirNext-DemiBold";*/
+/*    font-display: swap;*/
+/*    src: url("../fonts/AvenirNext-DemiBold.woff2") format("woff2"), url("../fonts/AvenirNext-DemiBold.woff") format("woff");*/
+/*    font-weight: 700;*/
+/*    font-style: normal;*/
+/*}*/
+/* Шаблоны (заготовки)
+* @extend %имя шаблона;
+*/
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    color: #131313;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+:focus,
+:active {
+    outline: none;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    font-family: "", sans-serif;
+    font-weight: 400;
+    line-height: 1;
+}
+
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+sup {
+    color: inherit;
+}
+
+/* =======================================================================================================================
+* Библиотеки
+* раскомментировать для использования
+*/
+/* * {
+  scrollbar-width: rem(8);
+  scrollbar-color: $firstAccentColor #d6d6d6;
+  // Chrome, Edge, and Safari
+  &::-webkit-scrollbar {
+    width: rem(8);
+    background-color: $whiteColor;
+  }
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 rem(6) rgba(#000, 20%);
+    border-radius: rem(4);
+    background: #eee;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: rem(4);
+    border: 0 none #fff;
+    background-color: lighten($firstAccentColor, 10%);
+    transition: all 280ms ease-in-out;
+    &:hover {
+      background-color: $firstAccentColor;
+    }
+  }
+} */
+body.lock {
+    overflow: hidden;
+    touch-action: none;
+}
+
+html {
+    font-size: 1rem/16rem;
+}
+
+/*
+* (i) Стили будут применяться ко
+* всем классам содержащим *__container
+* Например header__container, main__container и т.д.
+*/
+[class*=__container] {
+    max-width: 74.375rem;
+    margin: 0 auto;
+    padding: 0 0.9375rem;
+}
+
+[class*=-ibg] {
+    position: relative;
+}
+[class*=-ibg] img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+[class*=-ibg_contain] img {
+    object-fit: contain;
+}
+
+[class*=_overlay-bg] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 280ms ease-in-out 0ms;
+    z-index: 2000;
+    padding: 3.75rem 0.9375rem;
+    overflow-y: auto;
+}
+@media (max-width: 768px) {
+    [class*=_overlay-bg]::-webkit-scrollbar {
+        display: none;
+    }
+}
+[class*=_overlay-bg]._is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.page {
+    position: relative;
+    flex: 1 1 auto;
+}
+.page [data-observ] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.125rem;
+    background: transparent;
+    pointer-events: none;
+}
+.page_start {
+    padding-top: 6.25rem;
+}
+
+.header {
+    width: 100%;
+}
