@@ -1,39 +1,32 @@
 @charset "UTF-8";
-/*@font-face {*/
-/*    font-family: "AvenirNextCyr-Bold";*/
-/*    font-display: swap;*/
-/*    src: url("../fonts/AvenirNextCyr-Bold.woff2") format("woff2"), url("../fonts/AvenirNextCyr-Bold.woff") format("woff");*/
-/*    font-weight: 700;*/
-/*    font-style: normal;*/
-/*}*/
-/*@font-face {*/
-/*    font-family: "AvenirNextCyr-BoldItalic";*/
-/*    font-display: swap;*/
-/*    src: url("../fonts/AvenirNextCyr-BoldItalic.woff2") format("woff2"), url("../fonts/AvenirNextCyr-BoldItalic.woff") format("woff");*/
-/*    font-weight: 700;*/
-/*    font-style: normal;*/
-/*}*/
-/*@font-face {*/
-/*    font-family: "AvenirNextCyr-Medium";*/
-/*    font-display: swap;*/
-/*    src: url("../fonts/AvenirNextCyr-Medium.woff2") format("woff2"), url("../fonts/AvenirNextCyr-Medium.woff") format("woff");*/
-/*    font-weight: 500;*/
-/*    font-style: normal;*/
-/*}*/
-/*@font-face {*/
-/*    font-family: "AvenirNextCyr-Regular";*/
-/*    font-display: swap;*/
-/*    src: url("../fonts/AvenirNextCyr-Regular.woff2") format("woff2"), url("../fonts/AvenirNextCyr-Regular.woff") format("woff");*/
-/*    font-weight: 400;*/
-/*    font-style: normal;*/
-/*}*/
-/*@font-face {*/
-/*    font-family: "AvenirNext-DemiBold";*/
-/*    font-display: swap;*/
-/*    src: url("../fonts/AvenirNext-DemiBold.woff2") format("woff2"), url("../fonts/AvenirNext-DemiBold.woff") format("woff");*/
-/*    font-weight: 700;*/
-/*    font-style: normal;*/
-/*}*/
+@font-face {
+    font-family: "Manrope";
+    font-display: swap;
+    src: url("./fonts/Manrope-Bold.ttf") format("ttf"), url("./fonts/Manrope-Bold.ttf") format("ttf");
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Manrope";
+    font-display: swap;
+    src: url("./fonts/Manrope-SemiBold.ttf") format("ttf"), url("./fonts/Manrope-SemiBold.ttf") format("ttf");
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Manrope";
+    font-display: swap;
+    src: url("./fonts/Manrope-Medium.ttf") format("ttf"), url("./fonts/Manrope-Medium.ttf") format("ttf");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Manrope";
+    font-display: swap;
+    src: url("./fonts/Manrope-Regular.ttf") format("ttf"), url("./fonts/Manrope-Regular.ttf") format("ttf");
+    font-weight: 400;
+    font-style: normal;
+}
 /* Шаблоны (заготовки)
 * @extend %имя шаблона;
 */
@@ -43,6 +36,7 @@
     border: 0;
     box-sizing: border-box;
     color: #131313;
+    font-family: "Manrope", sans-serif;
 }
 
 *:before,
