@@ -1,0 +1,9 @@
+.button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    background: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
+}
