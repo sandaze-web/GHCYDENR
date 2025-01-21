@@ -22,10 +22,14 @@ const App = observer(() => {
             tg.MainButton.setParams({
                 text: `Оформить заказ`
             })
-        }else {
+            tg.MainButton.show()
+        }else if(useCheckLocation('offer')){
+            tg.MainButton.hide()
+        }else{
             tg.MainButton.setParams({
                 text: `Корзина`
             })
+            tg.MainButton.show()
         }
     }, [])
 
@@ -44,15 +48,11 @@ const App = observer(() => {
                 text: `Оформить заказ`
             })
             navigate('/offer') // страница оформление заказа
-            tg.MainButton.show()
-        }else if(useCheckLocation('offer')){
-            tg.MainButton.hide()
-        }else {
+        }else{
             tg.MainButton.setParams({
                 text: `Оформить заказ`
             })
             navigate('/basket')
-            tg.MainButton.show()
         }
     }
 
