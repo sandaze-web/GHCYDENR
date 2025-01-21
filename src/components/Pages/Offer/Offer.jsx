@@ -101,6 +101,9 @@ const Offer = observer(() => {
                     </div>
                 </div>
             </form>
+            <div className="offer-buttonBx">
+                <button onClick={sendFormData} className={"offer-button"}>Оформить заказ</button>
+            </div>
         </section>
     );
 });

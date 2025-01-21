@@ -44,11 +44,15 @@ const App = observer(() => {
                 text: `Оформить заказ`
             })
             navigate('/offer') // страница оформление заказа
-        }else{
+            tg.MainButton.show()
+        }else if(useCheckLocation('offer')){
+            tg.MainButton.hide()
+        }else {
             tg.MainButton.setParams({
                 text: `Оформить заказ`
             })
             navigate('/basket')
+            tg.MainButton.show()
         }
     }
 

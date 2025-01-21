@@ -46,3 +46,18 @@
     font-size: 16px;
     margin-top: 20px;
 }
+
+.offer-buttonBx {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--tg-theme-bg-color);
+    padding: 10px;
+}
+.offer-button {
+    background: var(--tg-theme-button-color);
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
