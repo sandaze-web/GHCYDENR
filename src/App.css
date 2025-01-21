@@ -19,7 +19,7 @@ body {
     height: 36px;
     border: 2px solid var(--tg-theme-text-color);
     font-size: 16px;
-    color: var(--tg-theme-bg-color);
+    color: #000;
 }
 .add-btn.added {
     background-color: var(--tg-theme-bg-color);
