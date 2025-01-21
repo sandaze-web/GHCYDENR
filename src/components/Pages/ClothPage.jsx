@@ -11,7 +11,7 @@ import {observer} from "mobx-react-lite";
 const ClothPage = observer(() => {
     const {basket} = useContext(Context)
     const {id} = useParams()
-    const {user} = useTelegram()
+    const {user, onToggleButton} = useTelegram()
 
     let userName = user?.username || 'sandaze'
 
@@ -49,10 +49,12 @@ const ClothPage = observer(() => {
         if(!isAdded) {
             fetchAddToBasket(userName, id, selectedSize).then(data => {
                 basket.addCloth(data)
+                onToggleButton(true)
             })
         }else {
             fetchDestroyFromBasket(userName, id, selectedSize).then(data => {
                 basket.removeCloth(userName, id, selectedSize)
+                if(basket.clothes.length === 0) onToggleButton(false)
             })
         }
     }

@@ -3,11 +3,11 @@ export function useTelegram () {
     const onClose = () => {
         tg.close()
     }
-    const onToggleButton= () => {
-        if(tg.MainButton.isVisible) {
-            tg.MainButton.hide()
-        } else{
+    const onToggleButton= (isShow) => {
+        if(isShow) {
             tg.MainButton.show()
+        } else{
+            tg.MainButton.hide()
         }
     }
     return {

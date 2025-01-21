@@ -30,7 +30,7 @@
 .cloth-characters-sizes span {
     width: 30px;
     height: 30px;
-    border: 1px solid #000;
+    border: 1px solid var(--tg-theme-text-color);
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -45,7 +45,7 @@
 .cloth-characters-sizes span.active{
     background-color: #000000;
     color: #fff;
-    border-color: #000;
+    border-color: var(--tg-theme-text-color);
 }
 .cloth__price {
     font-size: 21px;
