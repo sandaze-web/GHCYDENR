@@ -18,7 +18,7 @@ const App = observer(() => {
 
     useEffect(() => {
         tg.ready()
-        if(useCheckLocation('/basket') || useCheckLocation('/offer')) {
+        if(useCheckLocation('basket') || useCheckLocation('offer')) {
             tg.MainButton.setParams({
                 text: `Оформить заказ`
             })
@@ -39,7 +39,7 @@ const App = observer(() => {
     }
 
     const navigateToPage = () => {
-        if (useCheckLocation('/basket')) {
+        if (useCheckLocation('basket')) {
             tg.MainButton.setParams({
                 text: `Оформить заказ`
             })
@@ -74,7 +74,7 @@ const App = observer(() => {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
-            if(!useCheckLocation('/basket')){
+            if(!useCheckLocation('basket')){
                 tg.MainButton.setParams({
                     text: `Корзина`
                 })
