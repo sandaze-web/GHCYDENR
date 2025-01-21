@@ -30,10 +30,14 @@ const App = observer(() => {
 
     const navigateToPage = () => {
         if (location.pathname === '/' || /^\/basket(\/.*)?$/.test(location.pathname)) {
-            updateMainButtonText('Оформить заказ')
+            tg.MainButton.setParams({
+                text: `Оформить заказ`
+            })
             navigate('offer') // страница оформление заказа
         }else{
-            updateMainButtonText('Оформить заказ')
+            tg.MainButton.setParams({
+                text: `Оформить заказ`
+            })
             navigate('basket')
         }
     }
@@ -61,7 +65,7 @@ const App = observer(() => {
         } else {
             tg.MainButton.show();
             tg.MainButton.setParams({
-                text: `Купить`
+                text: `Корзина`
             })
             console.log('показать')
             // updateMainButtonText('Корзина')
