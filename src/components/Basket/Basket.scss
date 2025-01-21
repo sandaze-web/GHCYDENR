@@ -90,7 +90,7 @@
 .dropdown {
     &-cities {
         position: absolute;
-        top: calc(100% - 16px);
+        top: calc(100% + 10px);
         background-color: var(--tg-theme-text-color);
         padding: 10px;
         border: 1px solid #9d9d9d;
@@ -107,6 +107,7 @@
             margin-bottom: 5px;
             cursor: pointer;
             padding: 5px 0;
+            color: var(--tg-theme-bg-color);
             &:last-child {
                 margin-bottom: 0;
             }
