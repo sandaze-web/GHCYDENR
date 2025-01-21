@@ -7,6 +7,7 @@ import AppRouter from "./components/AppRouter";
 import {Context} from "./index";
 import {observer} from "mobx-react-lite";
 import {fetchBasketClothes} from "./http/basketApi";
+import {useCheckLocationBasket} from "./hooks/useCheckLocationBasket";
 
 
 const App = observer(() => {
@@ -17,9 +18,15 @@ const App = observer(() => {
 
     useEffect(() => {
         tg.ready()
-        tg.MainButton.setParams({
-            text: `Корзина`
-        })
+        if(useCheckLocationBasket()) {
+            tg.MainButton.setParams({
+                text: `Оформить заказ`
+            })
+        }else {
+            tg.MainButton.setParams({
+                text: `Корзина`
+            })
+        }
     }, [])
 
     const updateMainButtonText = (text) => {
@@ -32,7 +39,7 @@ const App = observer(() => {
     }
 
     const navigateToPage = () => {
-        if (/^\/basket(\/.*)?$/.test(location.pathname)) {
+        if (useCheckLocationBasket()) {
             tg.MainButton.setParams({
                 text: `Оформить заказ`
             })
@@ -67,12 +74,11 @@ const App = observer(() => {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
-            if(!/^\/basket(\/.*)?$/.test(location.pathname)){
+            if(!useCheckLocationBasket()){
                 tg.MainButton.setParams({
                     text: `Корзина`
                 })
             }
-            // updateMainButtonText('Корзина')
         }
     }, [basket.clothes])
 
