@@ -17,6 +17,9 @@ const App = observer(() => {
 
     useEffect(() => {
         tg.ready()
+        tg.MainButton.setParams({
+            text: `Корзина`
+        })
     }, [])
 
     const updateMainButtonText = (text) => {

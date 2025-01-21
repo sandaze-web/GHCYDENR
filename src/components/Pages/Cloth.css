@@ -67,6 +67,7 @@
     background-color: var(--tg-theme-bg-color);
     color: var(--tg-theme-text-color);
     height: 50px;
+    border: 2px solid var(--tg-theme-text-color);
 }
 .cloth-panel .add-btn path {
     fill: var(--tg-theme-text-color);
