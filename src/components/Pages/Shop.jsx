@@ -11,6 +11,7 @@ const Shop = observer(() => {
     const {user} = useTelegram()
 
     useEffect(() => {
+        console.log(222)
         fetchClothes( 1, 10).then(data => {
             cloth.setClothes(data.rows)
             cloth.setTotalCount(data.count)
