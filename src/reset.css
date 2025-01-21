@@ -35,7 +35,7 @@
     margin: 0;
     border: 0;
     box-sizing: border-box;
-    color: #131313;
+    color: var(--tg-theme-text-color);
     font-family: "Manrope", sans-serif;
 }
 
