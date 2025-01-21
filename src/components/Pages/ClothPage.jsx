@@ -77,6 +77,7 @@ const ClothPage = observer(() => {
                     </div>
                 </div>
             </div>
+            <span onClick={() => {navigate('/basket')}}>Basket</span>
             <div className="cloth-panel">
                 <div className="cloth__price">{cloth.price.toLocaleString('ru')} ₽</div>
                 <Button onClick={onAdd} className={`add-btn ${isAdded && 'added'}`}>

@@ -1,9 +1,9 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import './Basket.scss'
 import {observer} from "mobx-react-lite";
 import {Context} from "../../index";
 import BasketItem from "./BasketItem/BasketItem";
-import {fetchDestroyFromBasket} from "../../http/basketApi";
+import {fetchBasketClothes, fetchDestroyFromBasket} from "../../http/basketApi";
 import {useTelegram} from "../../hooks/useTelegram";
 import {useNavigate} from "react-router-dom";
 
@@ -11,6 +11,14 @@ const Basket = observer(() => {
     const {basket} = useContext(Context)
     const {user} = useTelegram()
     const navigate = useNavigate()
+
+    useEffect(() => {
+        let userName = user?.username || 'sandaze'
+
+        fetchBasketClothes(userName).then(data => {
+            basket.setClothes(data)
+        })
+    }, )
 
     if(basket.clothes.length === 0){
         return (

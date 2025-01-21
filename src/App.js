@@ -56,10 +56,11 @@ const App = observer(() => {
 
     useEffect(() => {
         let userName = user?.username || 'sandaze'
+
         fetchBasketClothes(userName).then(data => {
             basket.setClothes(data)
         })
-    }, [])
+    }, )
 
     useEffect(() => {
         if(basket.clothes.length === 0) {
