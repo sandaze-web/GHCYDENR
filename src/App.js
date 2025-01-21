@@ -57,9 +57,14 @@ const App = observer(() => {
     useEffect(() => {
         if(basket.clothes.length === 0) {
             tg.MainButton.hide();
+            console.log('скрыть')
         } else {
             tg.MainButton.show();
-            updateMainButtonText('Корзина')
+            tg.MainButton.setParams({
+                text: `Купить`
+            })
+            console.log('показать')
+            // updateMainButtonText('Корзина')
         }
     }, [basket.clothes])
 
