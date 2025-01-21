@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {fetchOneCloth} from "../../http/clothAPI";
 import Button from "../Button/Button";
 import './Cloth.css'
@@ -12,6 +12,7 @@ const ClothPage = observer(() => {
     const {basket} = useContext(Context)
     const {id} = useParams()
     const {user, onToggleButton} = useTelegram()
+    const navigate = useNavigate()
 
     let userName = user?.username || 'sandaze'
 
@@ -35,7 +36,6 @@ const ClothPage = observer(() => {
 
     useEffect(() => {
         const itemInBasket = basket.clothes.some(item => {
-            console.log(cloth.id)
             return item.clother_id === cloth.id && item.name === userName && item.size === selectedSize
         });
         setIsAdded(itemInBasket); // Если товар есть в корзине, устанавливаем isAdded в true

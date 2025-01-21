@@ -36,12 +36,12 @@ const App = observer(() => {
             tg.MainButton.setParams({
                 text: `Оформить заказ`
             })
-            navigate('offer') // страница оформление заказа
+            navigate('/offer') // страница оформление заказа
         }else{
             tg.MainButton.setParams({
                 text: `Оформить заказ`
             })
-            navigate('basket')
+            navigate('/basket')
         }
     }
 
@@ -64,13 +64,11 @@ const App = observer(() => {
     useEffect(() => {
         if(basket.clothes.length === 0) {
             tg.MainButton.hide();
-            console.log('скрыть')
         } else {
             tg.MainButton.show();
             tg.MainButton.setParams({
                 text: `Корзина`
             })
-            console.log('показать')
             // updateMainButtonText('Корзина')
         }
     }, [basket.clothes])
