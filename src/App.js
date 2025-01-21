@@ -29,7 +29,7 @@ const App = observer(() => {
     }
 
     const navigateToPage = () => {
-        if (location.pathname === '/' || /^\/basket(\/.*)?$/.test(location.pathname)) {
+        if (location.pathname !== '/' || /^\/basket(\/.*)?$/.test(location.pathname)) {
             tg.MainButton.setParams({
                 text: `Оформить заказ`
             })
