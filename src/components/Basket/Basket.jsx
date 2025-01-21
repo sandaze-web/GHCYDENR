@@ -13,6 +13,7 @@ const Basket = observer(() => {
     const navigate = useNavigate()
 
     useEffect(() => {
+        debugger
         let userName = user?.username || 'sandaze'
         fetchBasketClothes(userName).then(data => {
             basket.setClothes(data)
@@ -34,7 +35,10 @@ const Basket = observer(() => {
         )
     }else {
         const accumulatePrice = () => {
-            return basket.clothes.reduce((sum, item) => sum + item.clother.price, 0);
+            return basket.clothes.reduce((sum, item) => {
+                if(!item.clother) return 0
+                return sum + item.clother.price
+            }, 0);
         }
 
         const deleteCloth = (clother_id, size) => {

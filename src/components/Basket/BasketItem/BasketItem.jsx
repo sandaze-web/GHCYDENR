@@ -3,6 +3,8 @@ import React from 'react';
 const BasketItem = ({cloth, deleteCloth}) => {
     const infoCloth = cloth.clother
 
+    if (!infoCloth) return false
+
     return (
         <div className="basket__item">
             <div className="basket-imgBx -ibg"><img src={process.env.REACT_APP_API_URL + infoCloth.img} alt=""/></div>
