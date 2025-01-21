@@ -43,8 +43,8 @@
     margin-right: 0;
 }
 .cloth-characters-sizes span.active{
-    background-color: #000000;
-    color: #fff;
+    background-color: var(--tg-theme-text-color);
+    color: var(--tg-theme-bg-color);
     border-color: var(--tg-theme-text-color);
 }
 .cloth__price {
@@ -64,15 +64,15 @@
 }
 .cloth-panel .add-btn {
     max-width: 200px;
-    background-color: #000;
-    color: #fff;
+    background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
     height: 50px;
 }
 .cloth-panel .add-btn path {
-    fill: #fff;
+    fill: var(--tg-theme-text-color);
 }
 .cloth-panel .add-btn.added {
-    background-color: #fff;
-    border-color: #000;
-    color: #000;
+    background-color: var(--tg-theme-text-color);
+    border-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-bg-color);
 }

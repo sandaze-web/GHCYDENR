@@ -11,8 +11,8 @@
 }
 .basket__title .add-btn {
     max-width: 150px;
-    background-color: #000;
-    color: #fff;
+    background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
 
 }
 .basket-box {
@@ -91,7 +91,7 @@
     &-cities {
         position: absolute;
         top: calc(100% - 16px);
-        background-color: #fff;
+        background-color: var(--tg-theme-text-color);
         padding: 10px;
         border: 1px solid #9d9d9d;
         border-radius: 10px;

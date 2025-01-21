@@ -10,14 +10,14 @@
 .offer-inputBx input {
     font-size: 16px;
     border-radius: 10px;
-    border: 1px solid #000;
+    border: 1px solid var(--tg-theme-bg-color);
     padding: 15px 20px;
     width: 100%;
 }
 .offer-inputBx textarea {
     font-size: 16px;
     border-radius: 10px;
-    border: 1px solid #000;
+    border: 1px solid var(--tg-theme-bg-color);
     padding: 15px 20px;
     width: 100%;
     resize: none;

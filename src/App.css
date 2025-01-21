@@ -7,7 +7,7 @@ body {
     line-height: 19px;
 }
 .add-btn {
-    background-color: #fff;
+    background-color: var(--tg-theme-text-color);
     margin-top: auto;
     width: 100%;
     border-radius: 10px;
@@ -17,13 +17,13 @@ body {
     align-items: center;
     justify-content: center;
     height: 36px;
-    border: 2px solid #fff;
+    border: 2px solid var(--tg-theme-text-color);
     font-size: 16px;
-    color: var(--tg-theme-text-color);
+    color: var(--tg-theme-bg-color);
 }
 .add-btn.added {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
 }
 .add-btn svg {
     max-width: 10px;
