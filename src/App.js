@@ -67,9 +67,11 @@ const App = observer(() => {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
-            tg.MainButton.setParams({
-                text: `Корзина`
-            })
+            if(!/^\/basket(\/.*)?$/.test(location.pathname)){
+                tg.MainButton.setParams({
+                    text: `Корзина`
+                })
+            }
             // updateMainButtonText('Корзина')
         }
     }, [basket.clothes])
