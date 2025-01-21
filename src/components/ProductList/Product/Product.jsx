@@ -1,27 +1,30 @@
 import React, {useState} from 'react';
 import Button from "../../Button/Button";
+import {useNavigate} from "react-router-dom";
+import {CLOTH_ROUTE} from "../../../utils/const";
 
-const Product = ({product, className, onAdd}) => {
+const Product = ({cloth, className, onAdd}) => {
     let [isAdded, setIsAdded] = useState(false)
+    const navigate = useNavigate()
 
     const onAddHandler = () => {
-        onAdd(product);
+        onAdd(cloth);
         setIsAdded(!isAdded)
     }
 
     return (
-        <div className={'product ' + className}>
+        <div className={'product ' + className} onClick={() => navigate(CLOTH_ROUTE + '/' + cloth.id)}>
             <div className="item-imgBx -ibg">
-                <img src={`img/${product.src}`} alt={product.title} />
+                <img src={process.env.REACT_APP_API_URL + cloth.img} alt={cloth.name} />
             </div>
             <div className={'item-main'}>
                 <div className={'price'}>
-                    <span>{product.price.toLocaleString('ru')} ₽</span>
+                    <span>{cloth.price.toLocaleString('ru')} ₽</span>
                 </div>
-                <div className={'title'}>{product.title}</div>
-                <Button className={`add-btn ${isAdded && 'added'}`} onClick={onAddHandler}>
+                <div className={'title'}>{cloth.name}</div>
+                <Button className={`add-btn ${isAdded && 'added'}`}>
                     {isAdded ? (
-                        'Удалить из корзины'
+                        'Удалить'
                     ) : (
                         <>
                             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">

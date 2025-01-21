@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import './ProductList.css';
 import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect} from "react";
 import Product from "./Product/Product";
+import {Context} from "../../index";
+import {observer} from "mobx-react-lite";
 
 const products = [
     {id: '1', title: 'Футболка OVERSIZE «КАЙФ»', price: 2699, src: '1.jpg'},
@@ -17,31 +19,26 @@ const getTotalPrice = (items = []) => {
     }, 0)
 }
 
-const ProductList = () => {
+const ProductList =  observer(() => {
+    const {cloth} = useContext(Context)
+
     const [addedItems, setAddedItems] = useState([]);
     const {tg, queryId} = useTelegram();
 
-    const onSendData = useCallback(() => {
-        const data = {
-            products: addedItems,
-            totalPrice: getTotalPrice(addedItems),
-            queryId,
-        }
-        fetch('http://85.119.146.179:8000/web-data', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        })
-    }, [addedItems])
-
-    useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData)
-        return () => {
-            tg.offEvent('mainButtonClicked', onSendData)
-        }
-    }, [onSendData])
+    // const onSendData = useCallback(() => {
+    //     const data = {
+    //         products: addedItems,
+    //         totalPrice: getTotalPrice(addedItems),
+    //         queryId,
+    //     }
+    //     fetch('http://85.119.146.179:8000/web-data', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(data)
+    //     })
+    // }, [addedItems])
 
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
@@ -54,28 +51,20 @@ const ProductList = () => {
         }
 
         setAddedItems(newItems)
-
-        if(newItems.length === 0) {
-            tg.MainButton.hide();
-        } else {
-            tg.MainButton.show();
-            tg.MainButton.setParams({
-                text: `Купить ${getTotalPrice(newItems)}`
-            })
-        }
     }
 
     return (
         <div className={'products-box'}>
-            {products.map(item => (
+            {cloth.clothes.map(cloth => (
                 <Product
-                    product={item}
+                    key={cloth.id}
+                    cloth={cloth}
                     onAdd={onAdd}
                     className={'product-item'}
                 />
             ))}
         </div>
     );
-};
+});
 
 export default ProductList;

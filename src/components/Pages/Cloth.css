@@ -1,0 +1,78 @@
+.cloth {
+
+}
+.cloth-imgBx {
+    height: 300px;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.cloth-main {
+    margin-top: 20px;
+}
+.cloth__title {
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--tg-theme-text-color);
+}
+.cloth-characters {
+    margin-top: 20px;
+}
+.cloth-characters__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.cloth-characters-sizes {
+    display: flex;
+    align-items: center;
+}
+.cloth-characters-sizes span {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: .4s;
+}
+.cloth-characters-sizes span:last-child {
+    margin-right: 0;
+}
+.cloth-characters-sizes span.active{
+    background-color: #000000;
+    color: #fff;
+    border-color: #000;
+}
+.cloth__price {
+    font-size: 21px;
+    font-weight: 700;
+}
+.cloth-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 15px;
+    background: var(--tg-theme-bg-color);
+}
+.cloth-panel .add-btn {
+    max-width: 200px;
+    background-color: #000;
+    color: #fff;
+    height: 50px;
+}
+.cloth-panel .add-btn path {
+    fill: #fff;
+}
+.cloth-panel .add-btn.added {
+    background-color: #fff;
+    border-color: #000;
+    color: #000;
+}

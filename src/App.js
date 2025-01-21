@@ -1,30 +1,85 @@
 import './App.css';
 import './reset.css'
-import {useEffect} from "react";
+import {useContext, useEffect} from "react";
 import {useTelegram} from "./hooks/useTelegram";
-import Header from "./components/Header/Header";
-import {Route, Routes} from "react-router-dom";
-import ProductList from "./components/ProductList/ProductList";
-import Form from "./components/Form/Form";
+import {BrowserRouter, useLocation, useNavigate} from "react-router-dom";
+import AppRouter from "./components/AppRouter";
+import {Context} from "./index";
+import {observer} from "mobx-react-lite";
+import {fetchBasketClothes} from "./http/basketApi";
 
 
-function App() {
-    const {tg, onToggleButton} = useTelegram()
+const App = observer(() => {
+    const {tg, user} = useTelegram()
+    const {cloth, basket} = useContext(Context)
+    const location = useLocation()
+    const navigate = useNavigate()
 
     useEffect(() => {
         tg.ready()
     }, [])
 
-  return (
-    <div className="App">
-        {/*<Header />*/}
-        {/*<button onClick={onToggleButton}>toggle</button>*/}
-        <Routes>
-            <Route index element={<ProductList />} />
-            <Route path={'repair'} element={<Form />} />
-        </Routes>
-    </div>
-  );
-}
+    const updateMainButtonText = (text) => {
+        tg.MainButton.setParams({ text });
+    };
+
+    const onHome = () => {
+        updateMainButtonText('Корзина')
+        navigate('/')
+    }
+
+    const navigateToPage = () => {
+        if (location.pathname === '/' || /^\/basket(\/.*)?$/.test(location.pathname)) {
+            updateMainButtonText('Оформить заказ')
+            navigate('offer') // страница оформление заказа
+        }else{
+            updateMainButtonText('Оформить заказ')
+            navigate('basket')
+        }
+    }
+
+    useEffect(() => {
+        // показываем кнопку назад в случае, если находимся НЕ на главной
+        if (location.pathname === '/') {
+            tg.BackButton.hide()
+        } else {
+            tg.BackButton.show()
+        }
+    }, [location.pathname]);
+
+    useEffect(() => {
+        let userName = user?.username || 'sandaze'
+        fetchBasketClothes(userName).then(data => {
+            basket.setClothes(data)
+        })
+    }, [])
+
+    useEffect(() => {
+        if(basket.clothes.length === 0) {
+            tg.MainButton.hide();
+        } else {
+            tg.MainButton.show();
+            updateMainButtonText('Корзина')
+        }
+    }, [basket.clothes])
+
+    useEffect(() => {
+        //обработка нажатия на кнопки телеграма Назад и Главной кнопки снизу
+        tg.onEvent('mainButtonClicked', navigateToPage);
+        tg.onEvent('backButtonClicked', onHome); //при клике на кнопку назад всегда ведет на главную/каталог
+
+        return () => {
+            tg.offEvent('mainButtonClicked', navigateToPage);
+            tg.offEvent('backButtonClicked', onHome);
+        }
+    }, [location.pathname]);
+
+    return (
+        <div className="App">
+            {/*<Header />*/}
+            <AppRouter/>
+        </div>
+    );
+})
 
 export default App;

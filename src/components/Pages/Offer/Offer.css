@@ -1,0 +1,46 @@
+.offer-box {
+    margin-top: 20px;
+    row-gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.offer-wrapper {
+    margin-bottom: 30px;
+}
+.offer-inputBx input {
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    padding: 15px 20px;
+    width: 100%;
+}
+.offer-inputBx textarea {
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    padding: 15px 20px;
+    width: 100%;
+    resize: none;
+}
+.offer-inputBx .error input {
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid #f31e1e;
+    color: #f31e1e;
+}
+.offer-counts__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.offer-counts__item span:first-child{
+    font-size: 18px;
+}
+.offer-counts__item span:last-child{
+    font-weight: 700;
+    font-size: 18px;
+}
+.offer__notice {
+    font-size: 16px;
+    margin-top: 20px;
+}
