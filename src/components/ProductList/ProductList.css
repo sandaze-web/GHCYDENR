@@ -5,7 +5,7 @@
     grid-gap: 10px;
 }
 .product-item {
-    background-color: var(--tg-theme-bg-color);
+    background-color: var(--tg-theme-text-color);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -22,13 +22,13 @@
     flex-grow: 1;
 }
 .item-main .title {
-    color: var(--tg-theme-text-color);
+    color: var(--tg-theme-bg-color);
     font-size: 16px;
     margin-top: 5px;
     margin-bottom: 20px;
     line-height: 22px;
 }
 .item-main .price span {
-    color: var(--tg-theme-text-color);
+    color: var(--tg-theme-bg-color);
     font-weight: 700;
 }
