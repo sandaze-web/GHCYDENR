@@ -23,13 +23,16 @@ const App = observer(() => {
                 text: `Оформить заказ`
             })
             tg.MainButton.show()
+            console.log('show')
         }else if(useCheckLocation('offer')){
             tg.MainButton.hide()
+            console.log('hide')
         }else{
             tg.MainButton.setParams({
                 text: `Корзина`
             })
             tg.MainButton.show()
+            console.log('show')
         }
     }, [])
 
@@ -67,14 +70,13 @@ const App = observer(() => {
 
     useEffect(() => {
         let userName = user?.username || 'sandaze'
-        console.log(1)
         fetchBasketClothes(userName).then(data => {
             basket.setClothes(data)
         })
     }, [])
 
     useEffect(() => {
-        if(basket.clothes.length === 0) {
+        if(basket.clothes.length === 0 || useCheckLocation('offer')) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
