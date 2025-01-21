@@ -86,7 +86,7 @@ const App = observer(() => {
                 })
             }
         }
-    }, [basket.clothes])
+    }, [basket.clothes, location.pathname])
 
     useEffect(() => {
         //обработка нажатия на кнопки телеграма Назад и Главной кнопки снизу
