@@ -17,7 +17,7 @@ const Basket = observer(() => {
         fetchBasketClothes(userName).then(data => {
             basket.setClothes(data)
         })
-    }, )
+    }, [])
 
     if(basket.clothes.length === 0){
         return (
