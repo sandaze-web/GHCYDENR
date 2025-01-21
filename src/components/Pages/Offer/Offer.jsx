@@ -26,7 +26,7 @@ const Offer = observer(() => {
         return () => {
             tg.offEvent('mainButtonClicked', sendFormData);
         }
-    }, );
+    }, []);
 
     const sendFormData = (event) => {
         event.preventDefault(); // Предотвращаем отправку формы

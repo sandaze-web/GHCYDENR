@@ -13,7 +13,6 @@ const Basket = observer(() => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        debugger
         let userName = user?.username || 'sandaze'
         fetchBasketClothes(userName).then(data => {
             basket.setClothes(data)
