@@ -18,7 +18,7 @@ const App = observer(() => {
 
     useEffect(() => {
         tg.ready()
-        if(useCheckLocation('basket') || useCheckLocation('offer')) {
+        if(useCheckLocation('basket')) {
             tg.MainButton.setParams({
                 text: `Оформить заказ`
             })
