@@ -39,7 +39,7 @@ const Offer = observer(() => {
                 chat_id
             }
             fetchData(data).then((data) => {
-                console.log('отправил')
+                tg.close()
             })
         } else {
             form.reportValidity();
