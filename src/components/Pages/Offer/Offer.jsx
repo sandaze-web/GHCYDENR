@@ -11,7 +11,7 @@ import {fetchData} from "../../../http/botTelegramApi";
 
 const Offer = observer(() => {
     const {basket} = useContext(Context)
-    const {tg, query_id} = useTelegram()
+    const {tg, query_id, chat_id} = useTelegram()
 
     const formRef = useRef()
 
@@ -36,6 +36,7 @@ const Offer = observer(() => {
             // отправляем данные куда то, и отправляем сообщение пользователю через бот
             const data = {
                 query_id,
+                chat_id
             }
             fetchData(data).then((data) => {
                 console.log('отправил')
