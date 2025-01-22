@@ -35,11 +35,9 @@ const Offer = observer(() => {
         if (form.checkValidity()) {
             // отправляем данные куда то, и отправляем сообщение пользователю через бот
             const data = {
-                products: basket.clothes,
-                totalPrice: accumulatePrice(),
                 query_id,
             }
-            fetchData(JSON.stringify(data)).then((data) => {
+            fetchData(data).then((data) => {
                 console.log('отправил')
             })
         } else {
